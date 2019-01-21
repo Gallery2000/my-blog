@@ -1,0 +1,31 @@
+.header {
+  width: 100%;
+  height: 90px;
+  background-color: #f5f5f5; }
+  .header .main {
+    width: 700px;
+    margin: 0 auto;
+    padding: 25px 0; }
+    .header .main .logo {
+      float: left;
+      font-family: 'Lobster Two', 'Lato', "PingFang SC", "Microsoft YaHei", sans-serif;
+      font-size: 22px;
+      line-height: 40px; }
+    .header .main .navbar {
+      float: right; }
+      .header .main .navbar ul {
+        padding-top: 6px; }
+        .header .main .navbar ul li {
+          padding: 0 10px;
+          color: #555;
+          cursor: pointer;
+          border-radius: 4px;
+          line-height: 26px;
+          transition: all .4s;
+          display: inline-block; }
+          .header .main .navbar ul li:hover {
+            background-color: #e1e1e1; }
+          .header .main .navbar ul li .iconfont {
+            margin-right: 5px; }
+
+/*# sourceMappingURL=index.css.map */
