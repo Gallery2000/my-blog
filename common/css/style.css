@@ -1,8 +1,8 @@
 @font-face {
   font-family: 'iconfont';
   /* project id 1024293 */
-  src: url("http://at.alicdn.com/t/font_1024293_jwkc67pn258.eot");
-  src: url("http://at.alicdn.com/t/font_1024293_jwkc67pn258.eot?#iefix") format("embedded-opentype"), url("http://at.alicdn.com/t/font_1024293_jwkc67pn258.woff2") format("woff2"), url("http://at.alicdn.com/t/font_1024293_jwkc67pn258.woff") format("woff"), url("http://at.alicdn.com/t/font_1024293_jwkc67pn258.ttf") format("truetype"), url("http://at.alicdn.com/t/font_1024293_jwkc67pn258.svg#iconfont") format("svg"); }
+  src: url("http://at.alicdn.com/t/font_1024293_n33a3ak80t.eot");
+  src: url("http://at.alicdn.com/t/font_1024293_n33a3ak80t.eot?#iefix") format("embedded-opentype"), url("http://at.alicdn.com/t/font_1024293_n33a3ak80t.woff2") format("woff2"), url("http://at.alicdn.com/t/font_1024293_n33a3ak80t.woff") format("woff"), url("http://at.alicdn.com/t/font_1024293_n33a3ak80t.ttf") format("truetype"), url("http://at.alicdn.com/t/font_1024293_n33a3ak80t.svg#iconfont") format("svg"); }
 .iconfont {
   font-family: "iconfont" !important;
   font-size: 16px;
@@ -31,3 +31,62 @@ li {
 
 body {
   font-size: 13px; }
+
+.pagination-wrap {
+  margin: 100px 0;
+  width: 100%; }
+  .pagination-wrap .pagination-mian {
+    width: 700px;
+    margin: 0 auto; }
+    .pagination-wrap .pagination-mian .pagination {
+      border-top: 1px solid #eee;
+      font-size: 0; }
+      .pagination-wrap .pagination-mian .pagination a.act-btn {
+        display: inline-block;
+        border-top: 1px solid #eee;
+        position: relative;
+        top: -1px;
+        line-height: 30px;
+        vertical-align: top;
+        padding: 0 8px;
+        margin: 0 10px;
+        overflow: hidden;
+        text-align: center; }
+        .pagination-wrap .pagination-mian .pagination a.act-btn:hover {
+          border-top: 1px solid #222;
+          cursor: pointer; }
+      .pagination-wrap .pagination-mian .pagination ul {
+        display: inline-block;
+        font-size: 0;
+        vertical-align: top; }
+        .pagination-wrap .pagination-mian .pagination ul li {
+          box-sizing: border-box;
+          vertical-align: top;
+          position: relative;
+          top: -1px;
+          display: inline-block; }
+          .pagination-wrap .pagination-mian .pagination ul li.empty {
+            cursor: text;
+            line-height: 30px; }
+            .pagination-wrap .pagination-mian .pagination ul li.empty a {
+              cursor: text; }
+          .pagination-wrap .pagination-mian .pagination ul li.item {
+            padding: 0 11px;
+            margin: 0 10px;
+            line-height: 30px;
+            border-top: 1px solid #eee;
+            transition-property: all;
+            transition-timing-function: ease-in-out;
+            transition-duration: .2s;
+            font-size: 14px; }
+            .pagination-wrap .pagination-mian .pagination ul li.item.active {
+              background-color: #ccc; }
+              .pagination-wrap .pagination-mian .pagination ul li.item.active:hover {
+                border-top: 1px solid #eee;
+                cursor: text; }
+                .pagination-wrap .pagination-mian .pagination ul li.item.active:hover a {
+                  cursor: text; }
+              .pagination-wrap .pagination-mian .pagination ul li.item.active a {
+                color: #fff; }
+            .pagination-wrap .pagination-mian .pagination ul li.item:hover {
+              border-top: 1px solid #222; }
