@@ -209,9 +209,9 @@
     <script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
     <script>
     var options = {
-        index:1,
-        length:5,
-        total:10,
+        index:5,
+        length:7,
+        total:100,
         callback:function(index){
             console.log(index);
         }
@@ -225,23 +225,65 @@
                     var str = '';
                     var length = options.length;
                     var total = options.total;
-                    if(total<length){
-                        for(var i=1;i<total+1;i++){
-                        str+=' <li class="item"><a href="javascript:;">'+i+'</a></li>'
-                    }
-                    }else{
-                        for(var i=1;i<length+1;i++){
-                        str+=' <li class="item"><a href="javascript:;">'+i+'</a></li>'
-                    }
-                    }
-                    oEl.html('<a class="act-btn" href="javascript:;"><i class="iconfont">&#xe609;</i></a><ul>'+ str+'</ul><a class="act-btn" href="javascript:;"><i class="iconfont">&#xe602;</i></a>');
-                    oEl.find('.item').eq(options.index-1).addClass('active');
-                    oEl.find('.item').on('click',function(){
-                        oEl.find('.item').removeClass('active');
-                        $(this).addClass('active');
-                        options.callback($(this).index()+1)
-                    })
+                    var empty = $('<li class="empty" data-index="1"><a href="javascript:;"><i class="iconfont">&#xe7fb;</i></a></li>');  
+                    if(options.index>4){
+                        var num = "";
+                        var newIndex = options.index-2;
+                        if(options.index>=total-2){
+                            num = total+1;
+                            if(options.index>=total){
+                                newIndex = options.index-3;
+                            }
+                        }else{
+                            num  = parseInt(options.index)+3
+                        }
+                        
+                        str+=' <li class="item" data-index="1"><a href="javascript:;">1</a></li>';
+                        str+='<li class="empty"><a href="javascript:;"><i class="iconfont">&#xe7fb;</i></a></li>';
+                        for(var i=newIndex;i<num;i++){
+                            str+='<li class="item" data-index="'+i+'"><a href="javascript:;">'+i+'</a></li>'
+                        }
+                        if(!(i>total)){
+                            str+='<li class="empty"><a href="javascript:;"><i class="iconfont">&#xe7fb;</i></a></li>';
+                        str+=' <li class="item" data-index="'+total+'"><a href="javascript:;">'+total+'</a></li>';
+                        }
 
+                    }else{
+                        if(options.index>2){
+                            num = 4+parseInt(options.index)-2
+                        }else{
+                            num = 4;
+                        }
+                        for(var i=1;i<num+1;i++){
+                            str+='<li class="item" data-index="'+i+'"><a href="javascript:;">'+i+'</a></li>'
+                        }
+                        str+='<li class="empty"><a href="javascript:;"><i class="iconfont">&#xe7fb;</i></a></li>';
+                        str+=' <li class="item" data-index="'+total+'"><a href="javascript:;">'+total+'</a></li>';
+                    }
+                    str = '<ul>'+ str+'</ul>';
+                    if(options.index!=1){
+                        str='<a class="act-btn prev" href="javascript:;"><i class="iconfont">&#xe609;</i></a>'+str;
+                    }
+                    if(options.index!=total){
+                        str+='<a class="act-btn next" href="javascript:;"><i class="iconfont">&#xe602;</i></a>'
+                    }
+                    oEl.html(str);
+                    oEl.find('.item[data-index$='+options.index+']').addClass('active');
+                    oEl.find('.item').on('click',function(){
+                        var index = $(this).attr('data-index');
+                        options.callback(index);
+                        options.index = index;
+                        oEl.page(options);
+                    })
+                    oEl.find('.prev').on('click',function(){
+                        options.index--;
+                        oEl.page(options);
+                    })
+                    oEl.find('.next').on('click',function(){
+                        options.index++;
+                        oEl.page(options);
+                    })
+                    
                 });
             },
             setPage(index){
